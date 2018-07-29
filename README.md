@@ -33,7 +33,7 @@ addStyle("#input[type=range]", {
 pseudo element styling:
 
 ```javascript
-// remmember pseudo element's colon
+// remmember pseudo element's colon
 addStyle(
     "#input[type=range]",
     {
