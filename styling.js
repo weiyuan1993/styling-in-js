@@ -14,12 +14,20 @@ const addStyle = function(selector, rule, pseudoElement) {
         result = `{${ruleString}}`;
         return result;
     }
+    let styleText = "";
     if (pseudoElement) {
         // pseudo element styling
-        _sheet.innerHTML += `${selector}${pseudoElement}${getRuleValue(rule)}`;
+        _sheet.appendChild(
+            document.createTextNode(
+                `${selector}${pseudoElement}${getRuleValue(rule)}`
+            )
+        );
+        //_sheet.innerHTML += `${selector}${pseudoElement}${getRuleValue(rule)}`;
     } else {
         // normal css
-        _sheet.innerHTML += `${selector}${getRuleValue(rule)}`;
+        _sheet.appendChild(
+            document.createTextNode(`${selector}${getRuleValue(rule)}`)
+        );
     }
     if (!document.getElementById(_sheetId)) {
         _head.appendChild(_sheet);
